@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="javascripts/script.js"></script>
+	</head>
+  	<body ng-app="tripadvisors" ng-controller="MainCtrl">
+		<nav class="navbar-fixed-top navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><b>TripAdvisors</b></a>
+				</div>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input ng-model="search" type="text" class="form-control" placeholder="Search">
+				  	</div>
+				  	<button ng-click="searchThis()" class="btn btn-default">Submit</button>
+				</form>
+			</div><!--/.container-fluid -->
+		</nav>
+
+		<div class="container">
+		    <div> <!-- for indicating steps -->
+		    	<div>
+		    		<h1 align="center">User: {{data.userName}}</h1>
+		    	</div>
+		    	<div>
+		    		<div class="col-md-4">
+		    			<input type="checkbox" checked>Step 1</input>
+		    		</div>
+		    		<div class="col-md-4">
+		    			<input ng-model="cb2" type="checkbox">Step 2</input>
+		    		</div>
+		    		<div class="col-md-4">
+		    			<input ng-model="cb3" type="checkbox">Step 3</input>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div>
+		    	<div class="col-md-6">
+			    	<h3 align="center">Activity</h3>
+			    	<table class="table-striped" style="float:left">
+						<tr ng-repeat="(k,value) in data.activity.A50">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+					<table id="tbl12" class="table-striped" style="float:left; margin-left:100px; visibility:hidden">
+						<tr ng-repeat="(k,value) in data.activity.A75">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+					<table id="tbl13" class="table-striped" style="float:left; margin-left:100px; visibility:hidden">
+						<tr ng-repeat="(k,value) in data.activity.A100">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+			    </div>
+			    <div class="col-md-6">
+			    	<h3 align="center">Recommendations</h3>
+			    	<table class="table-striped" style="float:left">
+						<tr ng-repeat="(k,value) in data.recommendations.R50">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+					<table id="tbl22" class="table-striped" style="float:left; margin-left:40px; visibility:hidden">
+						<tr ng-repeat="(k,value) in data.recommendations.R75">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+					<table id="tbl23" class="table-striped" style="float:left; margin-left:40px; visibility:hidden">
+						<tr ng-repeat="(k,value) in data.recommendations.R100">
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ key }}</td>
+							<td style="padding:6px" ng-repeat="(key,val) in value">{{ val }}</td>
+						</tr>
+					</table>
+			    </div>
+		    </div>
+		    
+		</div>
+
+	    <div>
+			<nav class="navbar navbar-inverse navbar-fixed-bottom">
+				<p class="text-center text-muted"><br>TripAdvisors © 2015.</p>
+			</nav>
+		</div>
+	</body>
+</html>
